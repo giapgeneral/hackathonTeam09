@@ -1,4 +1,4 @@
-node_modules
 hackathon-api/node_modules
+hackathon-fe/node_modules
 build
 .env
