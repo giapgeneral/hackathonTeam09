@@ -1,31 +1,32 @@
-import { Text, FlatList } from "react-native";
-import tw from "twrnc";
-
+import "../App.css";
 import { Screen } from "../components/Screen";
+import $ from 'jquery';
 
 export function HomeScreen() {
-  const features = [
-    "tailwind",
-    "recoil",
-    "native styling",
-    "fetching code from an API",
-    "using a FlatList to render data",
-    "Image for both remote & local images",
-    "custom fonts",
-    "sign a transaction / message",
-    "theme hook with light/dark support",
-  ];
+  function handleSubmit() {
+    $('#container').addClass("none");
+  }
 
   return (
     <Screen>
-      <Text style={tw`mb-4`}>
-        You'll find several examples of how to build xNFTs using react-native:
-      </Text>
-      <FlatList
-        data={features}
-        keyExtractor={(item) => item}
-        renderItem={({ item }) => <Text>- {item}</Text>}
-      />
-    </Screen>
+      <div className="container" id="container">
+        <button id="start" className="button button--piyo" onClick={handleSubmit}>
+          <div className="button__wrapper">
+              <span className="button__text">Start</span>
+          </div>
+          <div className="characterBox">
+              <div className="character wakeup">
+                  <div className="character__face"></div>
+              </div>
+              <div className="character wakeup">
+                  <div className="character__face"></div>
+              </div>
+              <div className="character">
+                  <div className="character__face"></div>
+              </div>
+          </div>
+        </button>
+      </div>
+    </Screen> 
   );
 }
