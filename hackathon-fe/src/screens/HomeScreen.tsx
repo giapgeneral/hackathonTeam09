@@ -1,10 +1,13 @@
 import "../App.css";
 import { Screen } from "../components/Screen";
 import $ from 'jquery';
+import MainBoard from '../components/mainBoard';
 
 export function HomeScreen() {
   function handleSubmit() {
     $('#container').addClass("none");
+    $('#screenGame').addClass("block");
+    $('#screenGame').removeClass("none");
   }
 
   return (
@@ -26,6 +29,9 @@ export function HomeScreen() {
               </div>
           </div>
         </button>
+      </div>
+      <div id="screenGame" className="none">
+      <MainBoard/>
       </div>
     </Screen> 
   );
