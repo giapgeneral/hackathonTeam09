@@ -1,17 +1,14 @@
 const GRID_SIZE = 4;
- const CELL_SIZE = 100;
+const CELL_SIZE = 100;
 
- //variable declarations
  var canvas;
  var grid;
  var gameOver;
  var score;
  var gameWon;
 
- //DOM
  scoreContainer = document.getElementById("score");
 
- /* automatically called by third-party p5 */
  function setup() {
      canvas = createCanvas(GRID_SIZE * CELL_SIZE + 50, GRID_SIZE * CELL_SIZE + 50);
      background(187, 173, 160);
@@ -21,32 +18,25 @@ const GRID_SIZE = 4;
      updateGrid();
  }
 
- /* centers the game canvavs on window */
  function centerCanvas() {
      var x = (windowWidth - width) / 2;
      var y = (windowHeight - height) / 2 + 40;
      canvas.position(x, y);
  }
 
- /* recenters the game canvas if the window is resized */
  function windowResized() {
      centerCanvas();
  }
 
- /* creates a new game with the starting game board */
  function newGame() {
-     //fill grid with empty values (aka 0)
      grid = new Array(GRID_SIZE * GRID_SIZE).fill(0);
      gameOver = false;
      gameWon = false;
      score = 0;
-     //add the two starting tiles
      addRandomTile();
      addRandomTile();
  }
 
- /* updates the game grid with the correct tiles/tile colors, displays the score, and stops
-    the game if there are no moves left or the 2048 tile is reached */
  function updateGrid() {
      displayScore();
      drawGrid();
@@ -58,9 +48,6 @@ const GRID_SIZE = 4;
      }
  }
 
- /* automatically called when a key is pressed. Mmoves the tiles on the grid
-    respective to which arrow key is pressed. If Enter is pressed when the game
-    is over, a new game is started. */
  function keyPressed() {
      if (!gameOver && !gameWon) {
          switch (keyCode) {
