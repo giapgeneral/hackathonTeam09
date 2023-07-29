@@ -5,7 +5,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useFonts, Inter_900Black } from "@expo-google-fonts/dev";
-
 import { ExamplesScreens } from "./screens/ExamplesScreen";
 import { HomeScreen } from "./screens/HomeScreen";
 import { TokenListNavigator } from "./screens/TokenNavigator";
@@ -26,7 +25,7 @@ function TabNavigator() {
         options={{
           tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
+            <MaterialCommunityIcons name="gamepad-variant-outline" color={color} size={size} />
           ),
         }}
       />

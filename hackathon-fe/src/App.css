@@ -348,6 +348,7 @@
     top : -12px ;
     height : 18px ;
 }
+
 @keyframes sleep{
     0%  {
         height : 36px ;
@@ -542,4 +543,7 @@
 }
 .none{
     display: none;
+}
+.block{
+    display: block;
 }
