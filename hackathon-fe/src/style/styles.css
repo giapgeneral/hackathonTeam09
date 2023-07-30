@@ -11,12 +11,12 @@ body {
 .text {
   order: 2;
   padding-top: 40px;
-  width: 440px;
+  width: 340px;
   font-weight: bold;
 }
 .board {
   order: 1;
-  width: 440px;
+  width: 340px;
   height: 440px;
   padding: 5px;
   background-color: #baa;
