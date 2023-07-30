@@ -257,7 +257,7 @@ export default class MainBoard extends Component {
             <div className='board' onTouchStart={this.handleTouchStart.bind(this)} onTouchEnd={this.handleTouchEnd.bind(this)} tabIndex="1">
                 {cells}
                 {tiles}
-                <EndGame board={this.state.board} onRestart={this.restartGame.bind(this)} />
+                <EndGame board={this.state.board} score={score} onRestart={this.restartGame.bind(this)} />
                 <br /><br />
                 <div style={{display:"flex",justifyContent:"space-around"}}>
                     <div>

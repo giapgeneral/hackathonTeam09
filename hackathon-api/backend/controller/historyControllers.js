@@ -12,6 +12,7 @@ const getHistoryByUserId = async (req, res) => {
 };
 const addHistory = async (req, res) => {
   const {score} = req.body;
+  console.log(score);
   try {
     let history = new History({
       userId: req.user._id,

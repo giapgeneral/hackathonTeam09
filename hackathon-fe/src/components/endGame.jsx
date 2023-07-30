@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useEffect} from 'react';
+import { Api } from "../utils/Api";
 
-export const EndGame = ({board, onRestart}) => {
+export const EndGame = ({board, score, onRestart}) => {
     var contents = '';
     if (board.hasWon()) {
         contents = 'Good Job!';
@@ -10,6 +11,12 @@ export const EndGame = ({board, onRestart}) => {
     if (!contents) {
         return null;
     }
+    useEffect(async () => {
+        const { statusCode, data } = await Api.postRequest("/api/histories", {
+            score: score
+        });
+    }, []);
+
     return (
         <div className='overlay'>
             <p className='message'>{contents}</p>
