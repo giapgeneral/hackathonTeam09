@@ -29,6 +29,7 @@ var Tile = function (value, row, column) {
     this.id = Tile.id++;
 };
 
+var score = 0;
 Tile.id = 0;
 
 Tile.prototype.moveTo = function (row, column) {
@@ -91,6 +92,7 @@ Board.prototype.moveLeft = function () {
         var resultRow = [];
         for (var target = 0; target < Board.size; ++target) {
             var targetTile = currentRow.length ? currentRow.shift() : this.addTile();
+            
             if (currentRow.length > 0 && currentRow[0].value === targetTile.value) {
                 var tile1 = targetTile;
                 targetTile = this.addTile(targetTile.value);
@@ -98,10 +100,11 @@ Board.prototype.moveLeft = function () {
                 var tile2 = currentRow.shift();
                 tile2.mergedInto = targetTile;
                 targetTile.value += tile2.value;
+                score += targetTile.value;
             }
             resultRow[target] = targetTile;
             this.won |= (targetTile.value === 2048);
-            hasChanged |= (targetTile.value !== this.cells[row][target].value);
+            hasChanged |= (targetTile.value !== this.cells[row][target].value); 
         }
         this.cells[row] = resultRow;
     }
@@ -190,6 +193,7 @@ export default class MainBoard extends Component {
         this.state = {board: new Board};
     }
     restartGame() {
+        score = 0;
         this.setState({board: new Board});
     }
     handleKeyDown(event) {
@@ -250,15 +254,21 @@ export default class MainBoard extends Component {
             .filter(tile => tile.value !== 0)
             .map(tile => <TileView tile={tile} key={tile.id} />);
         return (
-            <div className='board' onTouchStart={this.handleTouchStart.bind(this)} onTouchEnd={this.handleTouchEnd.bind(this)} tabIndex="1" style={{display:"flex"}}>
-                <div>
-                    {cells}
-                </div>
-                <div>
-                    Point: 
-                </div>
+            <div className='board' onTouchStart={this.handleTouchStart.bind(this)} onTouchEnd={this.handleTouchEnd.bind(this)} tabIndex="1">
+                {cells}
                 {tiles}
                 <EndGame board={this.state.board} onRestart={this.restartGame.bind(this)} />
+                <br /><br />
+                <div style={{display:"flex",justifyContent:"space-around"}}>
+                    <div>
+                    <Button onClick={this.restartGame.bind(this)}>
+                        New Game
+                    </Button>
+                    </div>
+                    <div>
+                        Point: {score}
+                    </div> 
+                </div>
             </div>
         );
     }
