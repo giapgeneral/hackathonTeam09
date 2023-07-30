@@ -3,6 +3,7 @@ const express = require("express");
 const productRoutes = require("./routes/productRoutes");
 const userRoutes = require("./routes/userRoutes");
 const cartRoutes = require("./routes/cartRoutes");
+const orderRoutes = require("./routes/orderRoutes");
 const historyRoutes = require("./routes/historyRoutes");
 const settingRoutes = require("./routes/settingRoutes");
 const { connectDB } = require("./config/db");
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 app.use("/api/products", productRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/cart", cartRoutes);
+app.use("/api/order", orderRoutes);
 app.use("/api/histories", historyRoutes);
 app.use("/api/setting", settingRoutes);
 

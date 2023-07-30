@@ -2244,6 +2244,24 @@
     uuid "^8.3.2"
     zustand "^4.0.0-rc.2"
 
+"@coral-xyz/xnft-cli@^0.7.0-latest.547":
+  version "0.7.0-latest.547"
+  resolved "https://registry.yarnpkg.com/@coral-xyz/xnft-cli/-/xnft-cli-0.7.0-latest.547.tgz#84d2eb9e70c5822cc9f74b262a4064a66b271d15"
+  integrity sha512-B/4+oyZy3WvR9dD0kEcimFAQaPZAaI3td5rg4rSs9tEMeUEt+YF8AKKoC8PfHJebPdJwpRt9KeyjheZI/2nVDg==
+  dependencies:
+    "@coral-xyz/xnft" "^0.2.50"
+    "@esbuild-plugins/node-globals-polyfill" "^0.2.3"
+    chokidar "^3.5.3"
+    commander "^10.0.0"
+    download-git-repo latest
+    esbuild "^0.17.10"
+    esbuild-plugin-resolve "^1.0.3"
+    eslint-config-custom "*"
+    express "^4.18.2"
+    fast-glob "^3.2.12"
+    jszip "^3.10.1"
+    node-stdlib-browser "^1.2.0"
+
 "@coral-xyz/xnft@^0.2.50":
   version "0.2.59"
   resolved "https://registry.npmjs.org/@coral-xyz/xnft/-/xnft-0.2.59.tgz"
