@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useFonts, Inter_900Black } from "@expo-google-fonts/dev";
-import { ExamplesScreens } from "./screens/ExamplesScreen";
+import { History } from "./screens/History";
 import { HomeScreen } from "./screens/HomeScreen";
 import { TokenListNavigator } from "./screens/TokenNavigator";
 
@@ -41,12 +41,12 @@ function TabNavigator() {
         }}
       />
       <Tab.Screen
-        name="Examples"
-        component={ExamplesScreens}
+        name="History"
+        component={History}
         options={{
-          tabBarLabel: "Examples",
+          tabBarLabel: "History",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <MaterialCommunityIcons name="history" color={color} size={size} />
           ),
         }}
       />
