@@ -6,25 +6,23 @@ const Product = require("../models/Product");
 const createSession = async (req, res) => {
   try {
     console.log("req", req.body);
-    const product = await Product.findById(req.body.productId);
     const sdk = await getSdk();
-    console.log("product", product);
+    const products = req.body.products.map((product) => {
+      return {
+        name: product.name,
+        price: parseFloat(product.price),
+        image: product?.imageUrl || "",
+        quantity: 1,
+      };
+    });
     const response = await sdk.session.create({
       success_url: `${process.env.URL}/success`,
       cancel_url: `${process.env.URL}/cancel`,
       // additional tokens you can pass, SOL and USDC are default
-      items: [
-        {
-          name: product.name,
-          // price in USD
-          price: parseFloat(product.price),
-          image: product?.imageUrl || "",
-          quantity: 1,
-        },
-      ],
+      items: [...products],
     });
-    console.log("response", response);
-    res.status(200).send({ status: "ok", ...response });
+    console.log("response 3232", response);
+    res.status(200).send({ status: "ok", data: response });
     return;
   } catch (error) {
     console.log("Eorror : ", error);
