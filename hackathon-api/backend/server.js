@@ -15,7 +15,12 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-
+app.get("/success", (req, res) => {
+  res.sendFile(__dirname + "/success.html");
+});
+app.get("/error", (req, res) => {
+  res.sendFile(__dirname + "/error.html");
+});
 app.get("/", (req, res) => {
   res.json({ message: "API running..." });
 });
