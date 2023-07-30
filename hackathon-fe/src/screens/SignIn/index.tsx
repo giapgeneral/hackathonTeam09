@@ -10,8 +10,6 @@ function SignIn({ navigation }) {
   const [loading, setLoading] = useState(false);
 
   const _handleSubmit = useCallback(async () => {
-    // callback
-    console.log(email, password);
 
     if (email.length > 2 && password.length > 2) {
       setLoading(true);
