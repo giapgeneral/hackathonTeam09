@@ -3,6 +3,7 @@ import '../style/styles.css';
 import TileView from './tileView';
 import Cell from './cell';
 import {EndGame} from './endGame';
+import { Button } from 'antd';
 
 var rotateLeft = function (matrix) {
     var rows = matrix.length;
@@ -249,8 +250,13 @@ export default class MainBoard extends Component {
             .filter(tile => tile.value !== 0)
             .map(tile => <TileView tile={tile} key={tile.id} />);
         return (
-            <div className='board' onTouchStart={this.handleTouchStart.bind(this)} onTouchEnd={this.handleTouchEnd.bind(this)} tabIndex="1">
-                {cells}
+            <div className='board' onTouchStart={this.handleTouchStart.bind(this)} onTouchEnd={this.handleTouchEnd.bind(this)} tabIndex="1" style={{display:"flex"}}>
+                <div>
+                    {cells}
+                </div>
+                <div>
+                    Point: 
+                </div>
                 {tiles}
                 <EndGame board={this.state.board} onRestart={this.restartGame.bind(this)} />
             </div>
